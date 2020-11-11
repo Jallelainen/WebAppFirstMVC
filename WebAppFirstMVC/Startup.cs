@@ -35,12 +35,14 @@ namespace WebAppFirstMVC
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapDefaultControllerRoute();
+
                 endpoints.MapControllerRoute(
-                    name: "MyCars",
-                    pattern: "Cars/Listings/{id?}"
+                    name: "myCarsList",
+                    pattern: "Car-Listings/{id?}",
+                    defaults: new {controller = "Cars", action = "Index"}
                     );
                 
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }

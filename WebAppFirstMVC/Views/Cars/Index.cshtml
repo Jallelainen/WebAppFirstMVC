@@ -1,7 +1,10 @@
 ﻿
+@model List<Car>
 @{
     ViewBag.Title = "Car Listings";
 }
+
+<a asp-action="Create">Create a car</a>
 
 <table>
     <thead>
@@ -11,9 +14,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
+
+        @foreach (Car item in Model)
+        {
+            <tr>
+                <td>@item.Brand</td>
+                <td>@item.ModelName</td>
+            </tr>
+        }
+
     </tbody>
 </table>
