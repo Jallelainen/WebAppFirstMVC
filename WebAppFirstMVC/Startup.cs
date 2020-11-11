@@ -16,25 +16,30 @@ namespace WebAppFirstMVC
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(); // enable us to use MVC pattern/ controll
+            //services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            if (env.IsDevelopment()) // checks for developer enviroment
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage(); //if crash
             }
 
             app.UseStaticFiles(); // to access wwwroot
             app.UseDefaultFiles(); // find .html
 
-            app.UseRouting();
+            app.UseRouting(); // enables endpoints
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                //endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllerRoute(
+                    name: "MyCars",
+                    pattern: "Cars/Listings/{id?}"
+                    );
                 
             });
         }

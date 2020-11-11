@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="wwwroot\IMG\" />
     <Folder Include="wwwroot\.JS\" />
   </ItemGroup>
